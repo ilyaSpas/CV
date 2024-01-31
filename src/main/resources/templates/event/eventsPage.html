@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="container">
+
+    <form action="/events/search" method="get" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <input type="search" name="town" class="form-control" placeholder="Поиск мероприятия..."
+               aria-label="Search"><br>
+        <button type="submit" class="btn btn-outline-primary me-2">Поиск</button>
+    </form>
+    <br>
+    <a href="/events">Сбросить</a><br>
+
+    <hr>
+    <h2>Мероприятия</h2>
+    <hr>
+
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+            <li th:each="pageNumber : ${numbers}" class="page-item">
+                <a th:href="'/events?page=' + ${pageNumber}" th:text="${pageNumber + 1}" class="page-link"></a>
+            </li>
+        </ul>
+    </nav>
+
+    <div th:if="${find_events != null}">
+        <h3>Результат поиска:</h3>
+        <div th:each="event : ${find_events}">
+            <img th:src="${event.getHotelImageUrl()}" width="200" height="100" th:alt="${event.getTown()}">
+            <p th:text="'ГОРОД: ' + ${event.getTown()}"></p>
+            <p th:text="'ДАТА ПРОВЕДЕНИЯ: ' + ${event.getDate()}"></p>
+            <p th:text="'ГОСТИНИЦА: ' + ${event.getHotel()}"></p>
+            <p th:unless="${event.getConferenceHall().isEmpty()}"
+               th:text="'КОНФЕРЕНЦ-ЗАЛ: ' + ${event.getConferenceHall()}"></p>
+            <p th:text="'АДРЕС: ' + ${event.getHotelAddress()}"></p>
+            <hr>
+            <a th:href="'/events/' + ${event.getId()}">Детальнее</a>
+            <hr>
+        </div>
+    </div>
+
+    <div th:each="event : ${events}">
+        <img th:src="${event.getHotelImageUrl()}" width="200" height="100" th:alt="${event.getTown()}">
+        <p th:text="'ГОРОД: ' + ${event.getTown()}"></p>
+        <p th:text="'ДАТА ПРОВЕДЕНИЯ: ' + ${event.getDate()}"></p>
+        <p th:text="'ГОСТИНИЦА: ' + ${event.getHotel()}"></p>
+        <p th:unless="${event.getConferenceHall().isEmpty()}"
+           th:text="'КОНФЕРЕНЦ-ЗАЛ: ' + ${event.getConferenceHall()}"></p>
+        <p th:text="'АДРЕС: ' + ${event.getHotelAddress()}"></p>
+        <hr>
+        <a th:href="'/events/' + ${event.getId()}">Детальнее</a>
+        <hr>
+    </div>
+
+
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+            <li th:each="pageNumber : ${numbers}" class="page-item">
+                <a th:href="'/events?page=' + ${pageNumber}" th:text="${pageNumber + 1}" class="page-link"></a>
+            </li>
+        </ul>
+    </nav>
+
+
+</div>
+</body>
+</html>
