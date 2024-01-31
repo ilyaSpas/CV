@@ -1,6 +1,6 @@
-package com.example.project_web_app.controllers;
+package com.example.project_web_app.controller;
 
-import com.example.project_web_app.models.Event;
+import com.example.project_web_app.model.Event;
 import com.example.project_web_app.service.EventService;
 import com.example.project_web_app.validator.EventValidator;
 import lombok.RequiredArgsConstructor;

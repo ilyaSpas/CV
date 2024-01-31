@@ -1,10 +1,9 @@
-package com.example.project_web_app.controllers;
+package com.example.project_web_app.controller;
 
-import com.example.project_web_app.models.Person;
+import com.example.project_web_app.model.Person;
 import com.example.project_web_app.service.PersonService;
 import com.example.project_web_app.validator.PersonValidator;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
 package com.example.project_web_app.security;
 
-import com.example.project_web_app.models.Person;
+import com.example.project_web_app.model.Person;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

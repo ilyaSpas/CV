@@ -1,4 +1,4 @@
-package com.example.project_web_app.models;
+package com.example.project_web_app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Data
@@ -40,4 +40,7 @@ public class Event {
 
     @Column(name = "conference_hall")
     private String conferenceHall;
+
+    @OneToMany(mappedBy = "event", fetch = FetchType.LAZY)
+    private List<Participant> participants;
 }

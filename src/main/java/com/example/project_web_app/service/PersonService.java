@@ -1,6 +1,6 @@
 package com.example.project_web_app.service;
 
-import com.example.project_web_app.models.Person;
+import com.example.project_web_app.model.Person;
 import com.example.project_web_app.repo.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

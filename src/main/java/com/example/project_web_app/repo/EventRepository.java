@@ -1,6 +1,6 @@
 package com.example.project_web_app.repo;
 
-import com.example.project_web_app.models.Event;
+import com.example.project_web_app.model.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

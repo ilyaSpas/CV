@@ -1,9 +1,8 @@
 package com.example.project_web_app.service;
 
-import com.example.project_web_app.models.Event;
+import com.example.project_web_app.model.Event;
 import com.example.project_web_app.repo.EventRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

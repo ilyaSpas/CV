@@ -1,8 +1,7 @@
 package com.example.project_web_app.security;
 
-import com.example.project_web_app.models.Person;
+import com.example.project_web_app.model.Person;
 import com.example.project_web_app.repo.PersonRepository;
-import com.example.project_web_app.security.PersonDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

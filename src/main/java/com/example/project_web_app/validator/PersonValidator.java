@@ -1,6 +1,6 @@
 package com.example.project_web_app.validator;
 
-import com.example.project_web_app.models.Person;
+import com.example.project_web_app.model.Person;
 import com.example.project_web_app.security.PersonDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

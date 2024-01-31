@@ -1,15 +1,13 @@
 package com.example.project_web_app.validator;
 
-import com.example.project_web_app.models.Event;
+import com.example.project_web_app.model.Event;
 import com.example.project_web_app.service.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
