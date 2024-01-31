@@ -28,8 +28,10 @@ public class AuthController {
     @PostMapping("/registration")
     public String registration(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
+            System.out.println("Параметры не приняты, не создается новый объект");
             return "auth/registrationPage";
         }
+        System.out.println("Параметры приняты, создается новый объект");
         personService.create(person);
         return "redirect:/";
     }
