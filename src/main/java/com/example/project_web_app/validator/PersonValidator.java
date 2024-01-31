@@ -19,7 +19,7 @@ public class PersonValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Person person = (Person) target;
-        if (personDetailsService.loadUserByUsername(person.getEmail()) != null){
+        if (personDetailsService.loadUserByUsername(person.getEmail()) == null){
             errors.rejectValue("email", "", "Пользователь с такой " +
                                             "почтой уже зарегистрирован!");
         }

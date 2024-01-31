@@ -2,6 +2,8 @@ package com.example.project_web_app.controllers;
 
 import com.example.project_web_app.models.Person;
 import com.example.project_web_app.service.PersonService;
+import com.example.project_web_app.validator.PersonValidator;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -12,13 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
+@RequiredArgsConstructor
 public class AuthController {
     private final PersonService personService;
-
-    @Autowired
-    public AuthController(PersonService personService) {
-        this.personService = personService;
-    }
+    private final PersonValidator personValidator;
 
     @GetMapping("/registration")
     public String registrationPage(@ModelAttribute("person")Person person){
@@ -27,11 +26,10 @@ public class AuthController {
 
     @PostMapping("/registration")
     public String registration(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult){
+        personValidator.validate(person, bindingResult);
         if (bindingResult.hasErrors()){
-            System.out.println("Параметры не приняты, не создается новый объект");
             return "auth/registrationPage";
         }
-        System.out.println("Параметры приняты, создается новый объект");
         personService.create(person);
         return "redirect:/";
     }
