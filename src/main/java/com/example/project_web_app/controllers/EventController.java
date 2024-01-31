@@ -2,6 +2,7 @@ package com.example.project_web_app.controllers;
 
 import com.example.project_web_app.models.Event;
 import com.example.project_web_app.service.EventService;
+import com.example.project_web_app.validator.EventValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class EventController {
     private final EventService eventService;
+    private final EventValidator eventValidator;
 
     @GetMapping("/new")
     public String createEventPage(@ModelAttribute("event")Event event) {
@@ -26,6 +28,7 @@ public class EventController {
 
     @PostMapping("/new")
     public String createEvent(@ModelAttribute("event") @Valid Event event, BindingResult bindingResult) {
+        eventValidator.validate(event, bindingResult);
         if (bindingResult.hasErrors()){
             return "event/createEventPage";
         }
