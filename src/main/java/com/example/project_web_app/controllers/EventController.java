@@ -2,6 +2,7 @@ package com.example.project_web_app.controllers;
 
 import com.example.project_web_app.models.Event;
 import com.example.project_web_app.service.EventService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -14,13 +15,9 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/events")
+@RequiredArgsConstructor
 public class EventController {
     private final EventService eventService;
-
-    @Autowired
-    public EventController(EventService eventService) {
-        this.eventService = eventService;
-    }
 
     @GetMapping("/new")
     public String createEventPage(@ModelAttribute("event")Event event) {
