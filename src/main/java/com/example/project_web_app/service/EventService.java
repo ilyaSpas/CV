@@ -14,7 +14,7 @@ public class EventService {
         this.eventRepository = eventRepository;
     }
 
-    public void save(Event event){
+    public void create(Event event){
         eventRepository.save(event);
     }
 }

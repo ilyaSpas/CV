@@ -12,14 +12,32 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "events")
+@Table(name = "event")
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
-    @NotEmpty(message = "Введите название мероприятия!")
-    @Size(min = 3, message = "Слишком короткое название!")
-    @Column(name = "name")
-    private String name;
+    public Long id;
+
+    @NotEmpty(message = "Необходимо ввести название города проведения мероприятия!")
+    @Column(name = "town")
+    private String town;
+
+    @NotEmpty(message = "Необходимо ввести дату проведения мероприятия!")
+    @Column(name = "date")
+    private String date;
+
+    @NotEmpty(message = "Необходимо ввести название отеля!")
+    @Column(name = "hotel")
+    private String hotel;
+
+    @Column(name = "image_url")
+    private String hotelImageUrl;
+
+    @NotEmpty(message = "Необходимо ввести адрес проведения мероприятия!")
+    @Column(name = "hotel_address")
+    private String hotelAddress;
+
+    @Column(name = "conference_hall")
+    private String conferenceHall;
 }

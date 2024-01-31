@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/event")
+@RequestMapping("/events")
 public class EventController {
     private final EventService eventService;
 
@@ -32,7 +32,7 @@ public class EventController {
         if (bindingResult.hasErrors()){
             return "event/createEventPage";
         }
-        eventService.save(event);
+        eventService.create(event);
         return "redirect:/";
     }
 }
