@@ -22,7 +22,7 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping
+    @GetMapping("/new")
     public String createEventPage(@ModelAttribute("event")Event event) {
         return "event/createEventPage";
     }
