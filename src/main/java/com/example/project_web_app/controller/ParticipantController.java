@@ -34,6 +34,7 @@ public class ParticipantController {
         return "redirect:/";
     }
 
+    //TODO: если список участников пуст - выдет ошибку
     @GetMapping("/{event_id}/report")
     public String report(@ModelAttribute("participant") Participant participant,
                          @PathVariable("event_id") Long eventId,
