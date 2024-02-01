@@ -43,7 +43,7 @@ public class Person {
     @Column(name = "email")
     private String email;
 
-    @NotEmpty(message = "Введите ващ пароль")
+    @NotEmpty(message = "Введите ваш пароль")
     @Column(name = "password")
     private String password;
 

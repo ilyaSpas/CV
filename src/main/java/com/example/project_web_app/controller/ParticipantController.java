@@ -7,8 +7,10 @@ import com.example.project_web_app.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 
 @Controller
@@ -28,8 +30,11 @@ public class ParticipantController {
     }
 
     @PostMapping("/{event_id}/registration")
-    public String registration(@ModelAttribute("participant") Participant participant,
+    public String registration(@ModelAttribute("participant") @Valid Participant participant, BindingResult bindingResult,
                                @PathVariable("event_id") Long eventId){
+        if (bindingResult.hasErrors()){
+            return "participant/registrationPage";
+        }
         participantService.save(participant, eventId);
         return "redirect:/";
     }

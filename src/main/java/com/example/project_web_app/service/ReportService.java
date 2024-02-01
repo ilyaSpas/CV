@@ -1,4 +1,4 @@
-package com.example.project_web_app.security;
+package com.example.project_web_app.service;
 
 import com.example.project_web_app.model.Participant;
 import com.example.project_web_app.service.ParticipantService;

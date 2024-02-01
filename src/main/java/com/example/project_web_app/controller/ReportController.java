@@ -1,6 +1,6 @@
 package com.example.project_web_app.controller;
 
-import com.example.project_web_app.security.ReportService;
+import com.example.project_web_app.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -19,31 +19,38 @@
     <form th:action="'/events/' + ${id} + '/registration'" th:method="post" th:object="${participant}">
 
         <label>Имя:
-            <input type="text" name="firstName"/>
+            <input type="text" name="firstName" th:field="*{firstName}"/>
+            <i style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" >town error</i>
         </label><br>
 
         <label>Фамилия:
-            <input type="text" name="lastName"/>
+            <input type="text" name="lastName" th:field="*{lastName}"/>
+            <i style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" >town error</i>
         </label><br>
 
         <label>Отчество:
-            <input type="text" name="patronymic"/>
+            <input type="text" name="patronymic" th:field="*{patronymic}"/>
+            <i style="color:red" th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}" >town error</i>
         </label><br>
 
         <label>Дата рождения:
-            <input type="date" name="birthday"/>
+            <input type="date" name="birthday" th:field="*{birthday}"/>
+            <i style="color:red" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" >town error</i>
         </label><br>
 
         <label>Номер телефона:
-            <input type="text" name="phoneNumber"/>
+            <input type="text" name="phoneNumber" th:field="*{phoneNumber}"/>
+            <i style="color:red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" >town error</i>
         </label><br>
 
         <label>Почта:
-            <input type="email" name="email"/>
+            <input type="email" name="email" th:field="*{email}"/>
+            <i style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" >town error</i>
         </label><br>
 
         <label>Название аптеки:
-            <input type="text" name="pharmacy"/>
+            <input type="text" name="pharmacy" th:field="*{pharmacy}"/>
+            <i style="color:red" th:if="${#fields.hasErrors('pharmacy')}" th:errors="*{pharmacy}" >town error</i>
         </label><br>
 
         <label>Должность:
@@ -55,7 +62,8 @@
         </label><br>
 
         <label>Адрес аптеки:
-            <input type="text" name="pharmacyAddress"/>
+            <input type="text" name="pharmacyAddress" th:field="*{pharmacyAddress}"/>
+            <i style="color:red" th:if="${#fields.hasErrors('pharmacyAddress')}" th:errors="*{pharmacyAddress}" >town error</i>
         </label><br>
 
         <button type="submit">Сохранить</button>
