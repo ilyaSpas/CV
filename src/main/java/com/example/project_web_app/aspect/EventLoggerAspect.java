@@ -1,5 +1,7 @@
 package com.example.project_web_app.aspect;
 
+import com.example.project_web_app.model.Event;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 
@@ -7,7 +9,9 @@ import org.aspectj.lang.annotation.Before;
 public class EventLoggerAspect {
 
     @Before("com.example.project_web_app.aspect.pointcut.EventPointcut.createEventPointcut()")
-    public void eventLoggerAdvice(){
-        System.out.println("Попытка создания мероприятия");
+    public void eventLoggerAdvice(JoinPoint joinPoint){
+        Object[] args = joinPoint.getArgs();
+        Event event = (Event) args[0];
+        System.out.println("Попытка создания мероприятия. Город: " + event.getTown() + " Дата: " + event.getDate());
     }
 }
